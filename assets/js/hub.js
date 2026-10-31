@@ -79,8 +79,6 @@ function wireHero() {
   });
 }
 
-/* ---------- sharing helpers ---------- */
-const SITE = "https://pragyapetika.com/";
 const STATUS_NOTE = {
   GA: "Generally available.",
   Beta: "Beta: pilot it on non-critical work first.",
@@ -88,68 +86,6 @@ const STATUS_NOTE = {
   Frontier: "Limited early access: not for general use yet.",
   Retiring: "Retirement: plan your move before it stops working.",
 };
-const TAGS = {
-  dbx: { base: ["Databricks", "DataEngineering"], ai: ["GenAI", "AIAgents"], gov: ["UnityCatalog", "DataGovernance"], eng: ["Lakeflow", "DataPipelines"], share: ["DeltaLake", "OpenData"], bi: ["PowerBI", "Analytics"], plat: ["Serverless", "CloudData"] },
-  bi: { base: ["PowerBI", "MicrosoftFabric"], ai: ["Copilot", "AI"], report: ["DataViz", "Reporting"], model: ["DAX", "SemanticModel"], gov: ["DataGovernance", "Analytics"], dev: ["DataOps", "PBIP"], conn: ["BusinessIntelligence", "Analytics"] },
-};
-
-export function toast(msg) {
-  let t = document.getElementById("toast");
-  if (!t) {
-    t = document.createElement("div");
-    t.id = "toast";
-    t.className = "toast";
-    t.setAttribute("role", "status");
-    document.body.appendChild(t);
-  }
-  t.textContent = msg;
-  t.classList.add("show");
-  clearTimeout(toast.timer);
-  toast.timer = setTimeout(() => t.classList.remove("show"), 2600);
-}
-
-export async function copyText(text) {
-  try {
-    await navigator.clipboard.writeText(text);
-  } catch (e) {
-    const ta = document.createElement("textarea");
-    ta.value = text;
-    ta.style.cssText = "position:fixed;opacity:0";
-    document.body.appendChild(ta);
-    ta.select();
-    try {
-      document.execCommand("copy");
-    } catch (err) {
-      /* ignore */
-    }
-    ta.remove();
-  }
-  toast("Copied. Paste it into your LinkedIn post.");
-}
-
-/* A LinkedIn-ready post in the "hook, what's new, heads-up, why it matters, source" shape. */
-export function updatePost({ item, story, feed }) {
-  const lines = [`🚀 ${story ? story.hook : item.title}`, ""];
-  if (story) story.bullets.forEach((b) => lines.push(`✅ ${b}`));
-  else lines.push(item.summary);
-  const note = story && story.watch ? story.watch : STATUS_NOTE[item.status];
-  if (item.status !== "GA" || (story && story.watch)) lines.push(`⚠️ ${note}`);
-  if (story) lines.push("", `💡 Why it matters: ${story.why}`);
-  lines.push("", `Source: ${item.url}`, `More updates, summarised in plain language: ${SITE}#${feed.hash}`);
-  const tags = [...TAGS[feed.p === "dbx" ? "dbx" : "bi"].base, ...(TAGS[feed.p === "dbx" ? "dbx" : "bi"][item.theme] || [])];
-  lines.push("", tags.map((t) => "#" + t).join(" "));
-  return lines.join("\n");
-}
-
-function toolPost(t, categoryLabel, similar) {
-  const lines = [`🧰 AI tool spotlight: ${t.n}`, "", t.d, "", `✅ Category: ${categoryLabel}`];
-  if (t.o) lines.push("✅ Open source");
-  if (similar.length) lines.push(`✅ Similar tools: ${similar.map((s) => s.n).join(", ")}`);
-  lines.push("⚠️ Check pricing, data terms and security before using any tool with company data.");
-  lines.push("", `Browse the full searchable AI tools index: ${SITE}#ai`, "", "#AI #AITools #GenerativeAI #Productivity");
-  return lines.join("\n");
-}
-
 export async function initHub() {
   try {
     const [dbx, bi, ai, st] = await Promise.all([import("../data/databricks.js"), import("../data/bi.js"), import("../data/ai-tools.js"), import("../data/stories.js")]);
@@ -222,7 +158,6 @@ function initFeed({ p, hash, stories, themes, rows, linkLabel, insights, topics,
   Object.keys(themes).forEach((k, n) => (colorOf[k] = PALETTE[n % PALETTE.length]));
 
   /* ---------- Top stories: editorial briefs ---------- */
-  const feed = { p, hash };
   const storyCards = stories
     .map((s) => ({ s, item: items.find((i) => i.title === s.title) }))
     .filter((x) => x.item);
@@ -239,7 +174,6 @@ function initFeed({ p, hash, stories, themes, rows, linkLabel, insights, topics,
         <div class="story-who">${s.who.map((w) => `<span>${esc(w)}</span>`).join("")}</div>
         <div class="story-actions">
           <a href="${item.url}" target="_blank" rel="noopener noreferrer">${linkLabel}${EXT}</a>
-          <button type="button" data-copy-story="${n}">Copy as LinkedIn post</button>
         </div>
       </article>`;
     })
@@ -259,24 +193,10 @@ function initFeed({ p, hash, stories, themes, rows, linkLabel, insights, topics,
         <span class="theme-tag">${esc(themes[item.theme])}</span>
         <h4>${esc(s ? s.hook : item.title)}</h4>
         <p>${esc(s ? s.bullets[0] : item.summary)}</p>
-        <div class="spot-actions"><a href="${item.url}" target="_blank" rel="noopener noreferrer">${linkLabel}${EXT}</a><button type="button" data-copy-spot="${n}">Copy as LinkedIn post</button></div>
+        <div class="spot-actions"><a href="${item.url}" target="_blank" rel="noopener noreferrer">${linkLabel}${EXT}</a></div>
       </article>`
     )
     .join("")}</div>`;
-  id("Spot").addEventListener("click", (e) => {
-    const b = e.target.closest("[data-copy-spot]");
-    if (!b) return;
-    const { s, item } = spot[Number(b.dataset.copySpot)];
-    copyText(updatePost({ item, story: s, feed }));
-  });
-
-  id("Stories").addEventListener("click", (e) => {
-    const b = e.target.closest("[data-copy-story]");
-    if (!b) return;
-    const { s, item } = storyCards[Number(b.dataset.copyStory)];
-    copyText(updatePost({ item, story: s, feed }));
-  });
-
   const state = { theme: "all", status: "all", q: "", shown: 30 };
   const themeCounts = {};
   items.forEach((i) => (themeCounts[i.theme] = (themeCounts[i.theme] || 0) + 1));
@@ -312,7 +232,7 @@ function initFeed({ p, hash, stories, themes, rows, linkLabel, insights, topics,
           <h4>${esc(i.title)}</h4>
           <p>${esc(i.summary)}</p>
           ${i.status !== "GA" && STATUS_NOTE[i.status] ? `<p class="upd-note">${esc(STATUS_NOTE[i.status])}</p>` : ""}
-          <div class="upd-actions"><a href="${i.url}" target="_blank" rel="noopener noreferrer">${linkLabel}${EXT}</a><button type="button" data-copy-row="${items.indexOf(i)}">Copy as LinkedIn post</button></div></li>`
+          <div class="upd-actions"><a href="${i.url}" target="_blank" rel="noopener noreferrer">${linkLabel}${EXT}</a></div></li>`
         )
         .join("") || `<li><div class="empty-note">No updates match those filters. Try clearing the search.</div></li>`;
     id("Count").textContent = `${list.length} of ${items.length} updates`;
@@ -327,13 +247,6 @@ function initFeed({ p, hash, stories, themes, rows, linkLabel, insights, topics,
     state.shown = 30;
     chipBar.querySelectorAll(".fchip").forEach((c) => c.setAttribute("aria-pressed", String(c === b)));
     render();
-  });
-  id("List").addEventListener("click", (e) => {
-    const b = e.target.closest("[data-copy-row]");
-    if (!b) return;
-    const item = items[Number(b.dataset.copyRow)];
-    const s = stories.find((x) => x.title === item.title);
-    copyText(updatePost({ item, story: s, feed }));
   });
   id("Status").addEventListener("change", (e) => ((state.status = e.target.value), (state.shown = 30), render()));
   id("Search").addEventListener("input", debounce((e) => ((state.q = e.target.value.trim()), (state.shown = 30), render())));
@@ -542,19 +455,12 @@ function initAI({ aiCategories, aiTools, aiPicks }) {
           `<h5>Best for</h5><div class="row"><span>${esc(BEST_FOR[t.c])}</span></div>` +
           `<h5>Key themes</h5><div class="row">${kws.map((k) => `<button type="button" class="mini-chip" data-q="${esc(k)}">${esc(k)}</button>`).join("") || "<span>No themes detected.</span>"}</div>` +
           `<h5>Similar tools in ${esc(aiCategories[t.c])}</h5><div class="row">${rel.map((r) => `<button type="button" class="mini-chip" data-q="${esc(r.n)}">${esc(r.n)}</button>`).join("") || "<span>No close matches.</span>"}</div>` +
-          `<div class="row"><span class="story-warn inline"><b>Heads-up.</b> Check pricing and data terms before using any tool with company data.</span></div>` +
-          `<div class="row"><button type="button" class="copy-post">Copy as LinkedIn post</button></div>`;
+          `<div class="row"><span class="story-warn inline"><b>Heads-up.</b> Check pricing and data terms before using any tool with company data.</span></div>`;
         box.dataset.built = "1";
       }
       box.hidden = open;
       btn.setAttribute("aria-expanded", String(!open));
       btn.textContent = open ? "Insights" : "Hide insights";
-      return;
-    }
-    const cp = e.target.closest(".copy-post");
-    if (cp) {
-      const t = tools[Number(cp.closest(".tool-card").dataset.i)];
-      copyText(toolPost(t, aiCategories[t.c], related(t).slice(0, 3)));
       return;
     }
     const chip = e.target.closest(".mini-chip");
@@ -630,14 +536,8 @@ function initAI({ aiCategories, aiTools, aiPicks }) {
   $("aiFeat").innerHTML = `<div class="spot-head"><h3>Editor’s picks</h3><span>A few worth a look first</span></div><div class="spot-grid four">${feat
     .map(({ p, t }, n) => {
       const href = t.u || t.g || searchUrl(t.n);
-      return `<article class="spot-card" style="--c:${CAT_COLORS[t.c]}">${avatar(t)}<h4>${esc(t.n)}</h4><p>${esc(p.why)}</p><div class="spot-actions"><a href="${href}" target="_blank" rel="noopener noreferrer nofollow">${t.u || t.g ? "Visit" : "Search the web"}${EXT}</a><button type="button" data-copy-feat="${n}">Copy as LinkedIn post</button></div></article>`;
+      return `<article class="spot-card" style="--c:${CAT_COLORS[t.c]}">${avatar(t)}<h4>${esc(t.n)}</h4><p>${esc(p.why)}</p><div class="spot-actions"><a href="${href}" target="_blank" rel="noopener noreferrer nofollow">${t.u || t.g ? "Visit" : "Search the web"}${EXT}</a></div></article>`;
     })
     .join("")}</div>`;
-  $("aiFeat").addEventListener("click", (e) => {
-    const b = e.target.closest("[data-copy-feat]");
-    if (!b) return;
-    const { p, t } = feat[Number(b.dataset.copyFeat)];
-    copyText(toolPost({ ...t, d: p.why }, aiCategories[t.c], related(t).slice(0, 3)));
-  });
   render();
 }

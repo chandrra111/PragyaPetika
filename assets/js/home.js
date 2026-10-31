@@ -1,5 +1,5 @@
 import { openLightbox } from "./lightbox.js";
-import { esc, EXT, copyText, updatePost } from "./hub.js";
+import { esc, EXT } from "./hub.js";
 
 /* "Latest" landing view: one search across all three pillars, the pillar cards, top stories and infographics. */
 const $ = (id) => document.getElementById(id);
@@ -13,8 +13,8 @@ const debounce = (fn, ms = 120) => {
 };
 
 const PILLARS = {
-  data: { label: "Data", color: "#0ea5e9", search: "dbxSearch", feed: { p: "dbx", hash: "data" }, link: "Official release notes" },
-  bi: { label: "BI", color: "#2563eb", search: "biSearch", feed: { p: "bi", hash: "bi" }, link: "Official docs" },
+  data: { label: "Data", color: "#0ea5e9", search: "dbxSearch", link: "Official release notes" },
+  bi: { label: "BI", color: "#2563eb", search: "biSearch", link: "Official docs" },
   ai: { label: "AI", color: "#4f46e5", search: "aiSearch" },
 };
 
@@ -156,18 +156,12 @@ function latest(rows, themes, st, ai) {
         <p class="story-why"><b>Why it matters.</b> ${esc(s.why)}</p>
         <div class="story-actions">
           <a href="${item.url}" target="_blank" rel="noopener noreferrer">${p.link}${EXT}</a>
-          <button type="button" data-copy-latest="${n}">Copy as LinkedIn post</button>
           <button type="button" data-more="${key}">More in ${p.label} &rarr;</button>
         </div>
       </article>`;
     })
     .join("");
   $("homeLatest").addEventListener("click", (e) => {
-    const c = e.target.closest("[data-copy-latest]");
-    if (c) {
-      const { key, s, item } = shown[Number(c.dataset.copyLatest)];
-      return copyText(updatePost({ item, story: s, feed: PILLARS[key].feed }));
-    }
     const m = e.target.closest("[data-more]");
     if (m) {
       document.querySelector(`#${m.dataset.more} [data-tab="${m.dataset.more === "data" ? "dbx" : "bi"}-stories"]`).click();

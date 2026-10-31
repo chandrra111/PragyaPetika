@@ -39,7 +39,7 @@ assets/
         petika.css                                            # brand + Latest view + About
   js/   main.js        # entry point
         home.js        # Latest view: cross-pillar search, pillar cards, stories, AI picks, infographics
-        hub.js         # Data / BI / AI hubs (+ copy-as-LinkedIn-post; SITE url used in posts)
+        hub.js         # Data / BI / AI hubs
         panes.js       # #home / #data / #bi / #ai routing
         theme.js nav.js tabs.js reveal.js lightbox.js
   data/ databricks.js  # dbxUpdates rows: [theme, status, title, summary, url], insights, topics, sources, infographics
@@ -82,4 +82,5 @@ Then open http://localhost:8140. ES modules don't load from `file://`, so open t
 - **Dates:** add a date per update so "Latest" can sort by recency. Dates were removed in the profile site.
 - **Guides:** add a Guides section once there are about 5 real guides.
 - **Social image:** replace the `og:image` with a dedicated 1200×630 image. It currently reuses an infographic.
+- **Share on LinkedIn:** the old "Copy as LinkedIn post" buttons were removed (the pasted text looked poor). If sharing comes back, use a "Share on LinkedIn" link (`https://www.linkedin.com/sharing/share-offsite/?url=...`) pointing at a page with good Open Graph tags. The old post-text builders are in git history before this change.
 - **Newsletter or RSS:** offer a weekly email or RSS feed of the newest updates.

@@ -263,12 +263,12 @@
 .story-actions, .upd-actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-top: 6px; }
 .story-actions a, .upd-actions a { font-size: 13px; font-weight: 700; color: var(--accent-2); }
 .story-actions a:hover, .upd-actions a:hover { text-decoration: underline; }
-.story-actions button, .upd-actions button, .tool-insight .copy-post {
+.story-actions button, .upd-actions button {
   padding: 8px 15px; border-radius: 999px; font-size: 12.5px; font-weight: 700; color: #fff;
   background: linear-gradient(120deg, #0a66c2, #2f8be0); box-shadow: 0 6px 14px rgba(10, 102, 194, 0.28);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-.story-actions button:hover, .upd-actions button:hover, .tool-insight .copy-post:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(10, 102, 194, 0.38); }
+.story-actions button:hover, .upd-actions button:hover:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(10, 102, 194, 0.38); }
 .story-actions button { margin-left: auto; }
 
 /* the lead story gets the full width and a dark treatment */
