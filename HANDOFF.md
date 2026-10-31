@@ -17,7 +17,8 @@ These notes record every decision so a fresh chat can continue without the earli
 | Headline | "Your box of what's new in Data, BI and AI". This replaced "Explore. Learn. Stay Ahead.", which was too generic. |
 | Structure | A **Latest** home view plus three pillars: **Data** (Databricks), **BI** (Power BI and Fabric) and **AI** (tools index). Microsoft Fabric sits under BI and Data, not as its own pillar. |
 | Deferred | *Technical Guides* and *Tools & Tutorials*. Add them only once about 5 real guides exist, because empty sections look worse than none. |
-| Brand look | Navy and gold, the same palette as the profile site, with Plus Jakarta Sans for display text and Inter for body text. The icon is a gold casket (`assets/img/favicon.svg`). |
+| Brand look | Navy and blue (the gold, amber and violet accents were swapped for blues so the site no longer looks like the profile site or a stock AI page). Plus Jakarta Sans for display text and Inter for body text. The icon is a blue casket (`assets/img/favicon.svg`). |
+| AI tool logos | Each tool card shows the tool's real site icon (via Google's favicon service) when its domain is listed in `assets/data/ai-sites.js`, or the GitHub owner's avatar for open-source tools. Others show their first letter. |
 | Link to profile | "Curated by Balachandra Srinevasalu" appears in About and the footer, and links to balachandra-srinevasalu.com. |
 | Other domains | Optionally register `prajnapetika.com` and `pragyapetika.in` and redirect them here. |
 
@@ -44,6 +45,7 @@ assets/
   data/ databricks.js  # dbxUpdates rows: [theme, status, title, summary, url], insights, topics, sources, infographics
         bi.js          # biUpdates rows: [theme, status, title, summary, sourceKey]
         ai-tools.js    # aiTools {n, d, c, u?, g?, o?, r?, p?}, aiCategories, aiPicks
+        ai-sites.js    # tool name -> official domain, for logos and a Visit link
         stories.js     # Top stories; each title must match an update title exactly
   img/  databricks/, bi/   # infographics as .svg (shown) and .png (download)
 ```
@@ -52,7 +54,7 @@ assets/
 
 - **New update:** add a row to `dbxUpdates` or `biUpdates`. It appears in its hub, in the cross-pillar search and in the stats.
 - **Top story:** add an entry to `stories.js` whose `title` matches an update exactly. The Latest view alternates Data and BI stories and shows the first 6.
-- **AI tool:** add an object to `aiTools`. The Latest view shows the first 4 entries of `aiPicks`.
+- **AI tool:** add an object to `aiTools`. The Latest view shows the first 4 entries of `aiPicks`. To give it a real logo, add its name and checked domain to `ai-sites.js`.
 - **Infographic:** save the `.svg` and `.png` under `assets/img/...` and add the entry to `*Infographics`. The Latest view shows the first 2 from Data and the first 2 from BI.
 
 ## Run it locally

@@ -14,8 +14,8 @@ const debounce = (fn, ms = 120) => {
 
 const PILLARS = {
   data: { label: "Data", color: "#0ea5e9", search: "dbxSearch", feed: { p: "dbx", hash: "data" }, link: "Official release notes" },
-  bi: { label: "BI", color: "#f59e0b", search: "biSearch", feed: { p: "bi", hash: "bi" }, link: "Official docs" },
-  ai: { label: "AI", color: "#8b5cf6", search: "aiSearch" },
+  bi: { label: "BI", color: "#2563eb", search: "biSearch", feed: { p: "bi", hash: "bi" }, link: "Official docs" },
+  ai: { label: "AI", color: "#4f46e5", search: "aiSearch" },
 };
 
 /* Jump to a pillar and run the same search there. */

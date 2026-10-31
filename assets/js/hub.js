@@ -1,4 +1,5 @@
 import { openLightbox } from "./lightbox.js";
+import { aiSites } from "../data/ai-sites.js";
 
 const $ = (id) => document.getElementById(id);
 export const esc = (s) =>
@@ -13,9 +14,18 @@ const debounce = (fn, ms = 120) => {
 };
 const tokens = (q) => q.toLowerCase().split(/\s+/).filter(Boolean);
 
-const PALETTE = ["#8b5cf6", "#0ea5e9", "#14b8a6", "#f59e0b", "#ec4899", "#6366f1"];
-const CAT_COLORS = { build: "#6366f1", agents: "#14b8a6", growth: "#f59e0b", ops: "#0ea5e9", know: "#8b5cf6", media: "#ec4899" };
+const PALETTE = ["#2563eb", "#0ea5e9", "#4f46e5", "#0891b2", "#1e40af", "#3b82f6"];
+const CAT_COLORS = { build: "#2563eb", agents: "#0891b2", growth: "#0ea5e9", ops: "#1e40af", know: "#4f46e5", media: "#3b82f6" };
 const initial = (n) => (String(n).match(/[A-Za-z0-9]/) || ["?"])[0].toUpperCase();
+/* Tool logo: the site's own icon, or the GitHub owner's avatar; the letter shows until it loads, or if it fails. */
+function avatar(t) {
+  const src = t.w ? `https://www.google.com/s2/favicons?domain=${t.w}&sz=128` : t.g ? `https://github.com/${t.g.split("/")[3]}.png?size=96` : "";
+  const img = src ? `<img src="${src}" alt="" loading="lazy" referrerpolicy="no-referrer"${t.w ? "" : ' class="gh"'}>` : "";
+  return `<span class="avatar" aria-hidden="true">${initial(t.n)}${img}</span>`;
+}
+document.addEventListener("error", (e) => e.target.matches?.(".avatar img") && e.target.remove(), true);
+// Google answers an unknown domain with a 16px default globe instead of an error.
+document.addEventListener("load", (e) => e.target.matches?.(".avatar img") && (e.target.naturalWidth <= 16 ? e.target.remove() : e.target.parentNode.classList.add("has-logo")), true);
 const reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 function runCount(el) {
@@ -381,8 +391,10 @@ const BEST_FOR = {
 
 function initAI({ aiCategories, aiTools, aiPicks }) {
   const tools = aiTools.map((t, i) => {
+    const w = aiSites[t.n];
+    if (w && !t.u) t = { ...t, u: `https://${w}` };
     const words = new Set((t.d.toLowerCase().match(/[a-z][a-z-]{2,}/g) || []).filter((w) => !STOP.has(w)));
-    return { ...t, i, words, hay: (t.n + " " + t.d).toLowerCase() };
+    return { ...t, w, i, words, hay: (t.n + " " + t.d).toLowerCase() };
   });
   const byName = new Map(tools.map((t) => [t.n.toLowerCase(), t]));
   const catCounts = {};
@@ -460,7 +472,7 @@ function initAI({ aiCategories, aiTools, aiPicks }) {
       t.p ? `<span class="badge-mini b-promo">Sponsored in newsletter</span>` : "",
     ].join("");
     return `<article class="card tool-card" style="--c:${CAT_COLORS[t.c]}" data-i="${t.i}">
-      <header><span class="avatar" aria-hidden="true">${initial(t.n)}</span><div class="th"><h4>${esc(t.n)}</h4><span class="cat-tag">${esc(aiCategories[t.c])}</span></div></header>
+      <header>${avatar(t)}<div class="th"><h4>${esc(t.n)}</h4><span class="cat-tag">${esc(aiCategories[t.c])}</span></div></header>
       <p>${esc(t.d)}</p>
       ${badges ? `<div class="tool-badges">${badges}</div>` : ""}
       <div class="tool-actions">${links.join("")}<button type="button" class="insight-btn" aria-expanded="false">Insights</button></div>
@@ -618,7 +630,7 @@ function initAI({ aiCategories, aiTools, aiPicks }) {
   $("aiFeat").innerHTML = `<div class="spot-head"><h3>Editor’s picks</h3><span>A few worth a look first</span></div><div class="spot-grid four">${feat
     .map(({ p, t }, n) => {
       const href = t.u || t.g || searchUrl(t.n);
-      return `<article class="spot-card" style="--c:${CAT_COLORS[t.c]}"><span class="avatar" aria-hidden="true">${initial(t.n)}</span><h4>${esc(t.n)}</h4><p>${esc(p.why)}</p><div class="spot-actions"><a href="${href}" target="_blank" rel="noopener noreferrer nofollow">${t.u || t.g ? "Visit" : "Search the web"}${EXT}</a><button type="button" data-copy-feat="${n}">Copy as LinkedIn post</button></div></article>`;
+      return `<article class="spot-card" style="--c:${CAT_COLORS[t.c]}">${avatar(t)}<h4>${esc(t.n)}</h4><p>${esc(p.why)}</p><div class="spot-actions"><a href="${href}" target="_blank" rel="noopener noreferrer nofollow">${t.u || t.g ? "Visit" : "Search the web"}${EXT}</a><button type="button" data-copy-feat="${n}">Copy as LinkedIn post</button></div></article>`;
     })
     .join("")}</div>`;
   $("aiFeat").addEventListener("click", (e) => {

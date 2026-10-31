@@ -70,7 +70,7 @@
 }
 .badge-done { background: rgba(26, 143, 163, 0.12); color: var(--teal-600); }
 .badge-current {
-  background: rgba(201, 162, 75, 0.14);
+  background: rgba(59, 130, 246, 0.14);
   color: var(--gold-600);
 }
 :root[data-theme="dark"] .badge-current, :root:not([data-theme="light"]) .badge-current { color: var(--gold-500); }

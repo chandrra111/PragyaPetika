@@ -6,7 +6,7 @@
 
 /* --- brand --- */
 .brand { font-family: var(--font-display); font-weight: 800; letter-spacing: -0.01em; }
-.brand-mark { background: linear-gradient(135deg, var(--navy-900), var(--navy-700)); color: #e0b559; box-shadow: inset 0 0 0 1px rgba(224, 181, 89, 0.35); }
+.brand-mark { background: linear-gradient(135deg, var(--navy-900), var(--navy-700)); color: #60a5fa; box-shadow: inset 0 0 0 1px rgba(96, 165, 250, 0.35); }
 .brand-mark svg { width: 20px; height: 20px; }
 .brand-text { display: flex; flex-direction: column; line-height: 1.1; }
 .brand-text small {
@@ -16,9 +16,9 @@
 .loading-veil .mark { font-family: var(--font-display); }
 
 /* --- hero --- */
-.hero-home .o1 { background: #c9a24b; } .hero-home .o2 { background: #1a8fa3; } .hero-home .o3 { background: #7a52d6; }
+.hero-home .o1 { background: #3b82f6; } .hero-home .o2 { background: #1a8fa3; } .hero-home .o3 { background: #4f46e5; }
 .hero-home .hh-title { max-width: 16ch; }
-.hero-home .hh-kicker .deva { font-size: 14px; color: #f6d57d; white-space: nowrap; }
+.hero-home .hh-kicker .deva { font-size: 14px; color: #93c5fd; white-space: nowrap; }
 .hero-home .hh-inner { padding-bottom: 56px; }
 
 /* --- section blocks --- */
@@ -86,12 +86,12 @@
 .pick-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
 .pick-chip {
   display: flex; flex-direction: column; gap: 4px; padding: 18px 18px 16px; text-align: left;
-  background: var(--surface); border: 1px solid var(--border); border-left: 4px solid #8b5cf6; border-radius: var(--radius-md);
+  background: var(--surface); border: 1px solid var(--border); border-left: 4px solid #4f46e5; border-radius: var(--radius-md);
   box-shadow: var(--shadow-sm); transition: transform var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease);
 }
 .pick-chip:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
 .pick-chip b { font-family: var(--font-display); font-size: 1.02rem; color: var(--text); }
-.pick-chip span { font-size: 11.5px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #8b5cf6; }
+.pick-chip span { font-size: 11.5px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #4f46e5; }
 .pick-chip small { margin-top: 4px; font-size: 13.5px; line-height: 1.5; color: var(--text-muted); }
 
 /* --- about --- */
@@ -103,24 +103,24 @@
 .about-name { max-width: 62ch; }
 .about-mark {
   display: inline-flex; align-items: center; justify-content: center; width: 52px; height: 52px; border-radius: 14px;
-  background: rgba(224, 181, 89, 0.14); color: #e0b559; box-shadow: inset 0 0 0 1px rgba(224, 181, 89, 0.4);
+  background: rgba(96, 165, 250, 0.14); color: #60a5fa; box-shadow: inset 0 0 0 1px rgba(96, 165, 250, 0.4);
 }
 .about-mark svg { width: 28px; height: 28px; }
 .about-block h2 { margin-top: 16px; color: #fff; font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 800; letter-spacing: -0.02em; }
 .deva-line { margin-top: 10px; font-size: 16px; line-height: 1.6; color: #b9c7d6; }
-.deva-line .deva { color: #f6d57d; font-size: 18px; }
+.deva-line .deva { color: #93c5fd; font-size: 18px; }
 .about-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 32px; padding-top: 28px; border-top: 1px solid rgba(255, 255, 255, 0.12); }
-.about-cols h3 { font-size: 12.5px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #e0b559; }
+.about-cols h3 { font-size: 12.5px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #60a5fa; }
 .about-cols p { margin-top: 10px; font-size: 14.5px; line-height: 1.65; color: #b9c7d6; }
 .about-cols b { color: #fff; }
 .about-cols a { color: #fff; }
-.about-cols a:hover { color: #f6d57d; }
+.about-cols a:hover { color: #93c5fd; }
 .curator-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
 .curator-links a {
   padding: 7px 14px; border-radius: 999px; font-size: 13px; font-weight: 600;
   background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.16);
 }
-.curator-links a:hover { background: #e0b559; border-color: #e0b559; color: #0f2138; }
+.curator-links a:hover { background: #60a5fa; border-color: #60a5fa; color: #0f2138; }
 
 .site-footer a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
 .site-footer .footer-links a { text-decoration: none; }
