@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pragya Petika — The Technology Knowledge Hub for Data, BI &amp; AI</title>
+<meta name="description" content="Pragya Petika, your box of what's new in Data, BI and AI: Databricks and Power BI / Microsoft Fabric release digests in plain language, top stories, infographics and a searchable index of AI tools.">
+<meta name="keywords" content="Databricks updates, Power BI updates, Microsoft Fabric, Unity Catalog, Lakehouse, AI tools, GenAI, data engineering, business intelligence, Pragya Petika">
+<meta name="author" content="Balachandra Srinevasalu">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://pragyapetika.com/">
+
+<!-- Open Graph / social -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Pragya Petika">
+<meta property="og:title" content="Pragya Petika — The Technology Knowledge Hub">
+<meta property="og:description" content="Your box of what's new in Data, BI and AI: release digests, top stories, infographics and an AI tools index.">
+<meta property="og:image" content="https://pragyapetika.com/assets/img/databricks/01-what-shipped.png">
+<meta property="og:url" content="https://pragyapetika.com/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pragya Petika — The Technology Knowledge Hub">
+<meta name="twitter:description" content="Your box of what's new in Data, BI and AI.">
+<meta name="twitter:image" content="https://pragyapetika.com/assets/img/databricks/01-what-shipped.png">
+
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#0f2138">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&family=Noto+Serif+Devanagari:wght@600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="assets/css/variables.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<link rel="stylesheet" href="assets/css/animations.css">
+<link rel="stylesheet" href="assets/css/responsive.css">
+<link rel="stylesheet" href="assets/css/hub.css">
+<link rel="stylesheet" href="assets/css/hub-v2.css">
+<link rel="stylesheet" href="assets/css/petika.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Pragya Petika",
+  "alternateName": "प्रज्ञा पेटिका",
+  "description": "The Technology Knowledge Hub: latest insights and updates across Data, BI and AI.",
+  "url": "https://pragyapetika.com/",
+  "creator": {
+    "@type": "Person",
+    "name": "Balachandra Srinevasalu",
+    "url": "https://balachandra-srinevasalu.com/",
+    "sameAs": ["https://www.linkedin.com/in/chandrra/", "https://github.com/chandrra111"]
+  }
+}
+</script>
+</head>
+<body>
+
+<div class="loading-veil" id="loadingVeil" aria-hidden="true"><div class="mark">PP</div></div>
+
+<a href="#main" class="skip-link">Skip to content</a>
+
+<!-- ============ HEADER / NAV ============ -->
+<header class="site-header" id="siteHeader">
+  <div class="nav-inner">
+    <a href="#home" class="brand">
+      <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 10.5h15v8a1 1 0 0 1-1 1h-13a1 1 0 0 1-1-1z"/><path d="M3.5 10.5l2-4.5h13l2 4.5"/><path d="M10.5 14h3"/></svg></span>
+      <span class="brand-text">Pragya Petika<small>The Technology Knowledge Hub</small></span>
+    </a>
+
+    <nav class="nav-links" id="navLinks" aria-label="Primary">
+      <a href="#home" data-pane-link="home">Latest</a>
+      <a href="#data" data-pane-link="data">Data</a>
+      <a href="#bi" data-pane-link="bi">BI</a>
+      <a href="#ai" data-pane-link="ai">AI</a>
+      <a href="#about">About</a>
+    </nav>
+
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </button>
+      <button class="nav-toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <div class="pane" id="pane-home" data-pane="home">
+    <section class="hub hub-home" id="home">
+      <header class="hub-hero hero-home">
+        <div class="hh-bg" aria-hidden="true"><i class="orb o1"></i><i class="orb o2"></i><i class="orb o3"></i><i class="grid"></i></div>
+        <div class="container hh-inner">
+          <span class="hh-kicker"><i></i><span class="kick-en">Pragya Petika ·</span> <span lang="sa" class="deva">प्रज्ञा पेटिका</span> · a box of wisdom</span>
+          <h1 class="hh-title">Your box of what&rsquo;s new in <span class="grad">Data, BI and AI</span></h1>
+          <p class="hh-sub">The latest releases from Databricks, Power BI and Microsoft Fabric, explained in plain language with links to the official sources, plus a searchable index of AI tools. Open the box and search all of it at once.</p>
+          <div class="hh-search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="search" id="homeSearch" placeholder="Search everything: Unity Catalog, Copilot, DAX, agents&hellip;" aria-label="Search Data, BI and AI" autocomplete="off">
+          </div>
+          <div class="hh-pop" aria-label="Popular topics"><span>Topics:</span><button type="button" data-home-q="Unity Catalog">Unity Catalog</button><button type="button" data-home-q="Genie">Genie</button><button type="button" data-home-q="Fabric">Microsoft Fabric</button><button type="button" data-home-q="DAX">DAX</button><button type="button" data-home-q="Copilot">Copilot</button><button type="button" data-home-q="agent">AI agents</button></div>
+          <div class="stat-strip" id="homeStats" aria-label="At a glance"></div>
+        </div>
+      </header>
+
+      <div class="container hub-body">
+        <div class="home-results" id="homeResults" role="region" aria-label="Search results" aria-live="polite" hidden></div>
+
+        <div class="home-block">
+          <div class="spot-head"><h2>Open the box</h2><span>Three pillars, one place</span></div>
+          <div class="pillar-grid" id="homePillars"></div>
+        </div>
+
+        <div class="home-block">
+          <div class="spot-head"><h2>Latest top stories</h2><span>What changed, and why it matters</span></div>
+          <div class="story-grid" id="homeLatest"></div>
+        </div>
+
+        <div class="home-block">
+          <div class="spot-head"><h2>AI tools worth a look</h2><span>From the editor&rsquo;s shortlist</span></div>
+          <div class="pick-row" id="homePicks"></div>
+        </div>
+
+        <div class="home-block">
+          <div class="spot-head"><h2>Infographics</h2><span>Original visual summaries, free to download</span></div>
+          <div class="info-grid" id="homeInfo"></div>
+        </div>
+
+        <div class="about-block" id="about">
+          <div class="about-name">
+            <span class="about-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 10.5h15v8a1 1 0 0 1-1 1h-13a1 1 0 0 1-1-1z"/><path d="M3.5 10.5l2-4.5h13l2 4.5"/><path d="M10.5 14h3"/></svg></span>
+            <h2>About Pragya Petika</h2>
+            <p class="deva-line"><span lang="sa" class="deva">प्रज्ञा पेटिका</span> &mdash; <em>Pragya</em> means wisdom, and <em>Petika</em> is a box or casket. Together: a box of wisdom you open to find what&rsquo;s worth knowing.</p>
+          </div>
+          <div class="about-cols">
+            <div>
+              <h3>What it is</h3>
+              <p>An independent digest of what&rsquo;s new across three pillars: <b>Data</b> (Databricks and the Lakehouse), <b>BI</b> (Power BI and Microsoft Fabric) and <b>AI</b> (tools and GenAI). Every update is summarised in plain language and linked to the vendor&rsquo;s own documentation, so you can check the facts in one click.</p>
+            </div>
+            <div>
+              <h3>How it&rsquo;s made</h3>
+              <p>Facts come from official release notes and documentation. Summaries, stories and infographics are original. Practitioner topics are paraphrased from community newsletters, never copied. Pragya Petika is not affiliated with or endorsed by any vendor.</p>
+            </div>
+            <div class="curator">
+              <h3>Curated by</h3>
+              <p><a href="https://balachandra-srinevasalu.com/" target="_blank" rel="noopener"><b>Balachandra Srinevasalu</b></a>, a data and analytics leader with 23 years in enterprise data strategy, BI modernisation, Lakehouse platforms and AI.</p>
+              <div class="curator-links">
+                <a href="https://balachandra-srinevasalu.com/" target="_blank" rel="noopener">Profile</a>
+                <a href="https://www.linkedin.com/in/chandrra/" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="mailto:balachandra.srinevasalu@gmail.com?subject=Pragya%20Petika">Email</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="pane" id="pane-data" data-pane="data" hidden>
+        <section class="hub hub-data" id="data">
+      <header class="hub-hero hero-data">
+        <div class="hh-bg" aria-hidden="true"><i class="orb o1"></i><i class="orb o2"></i><i class="orb o3"></i><i class="grid"></i></div>
+        <div class="container hh-inner">
+          <span class="hh-kicker"><i></i>Data · Databricks Watch</span>
+          <h1 class="hh-title">Every <span class="grad">Databricks</span> release,<br>decoded</h1>
+          <p class="hh-sub">The platform moves fast. This digest groups the latest releases by theme, explains each in plain language, and links straight to the official release notes.</p>
+          <div class="hh-search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="search" id="dbxSearch" placeholder="Search updates: Genie, Unity Catalog, lineage&hellip;" aria-label="Search Databricks updates" autocomplete="off">
+          </div>
+          <div class="hh-pop" aria-label="Popular searches"><span>Popular:</span><button type="button" data-hero-q="Genie" data-hero-p="dbx">Genie</button><button type="button" data-hero-q="Unity Catalog" data-hero-p="dbx">Unity Catalog</button><button type="button" data-hero-q="lineage" data-hero-p="dbx">lineage</button><button type="button" data-hero-q="serverless" data-hero-p="dbx">serverless</button><button type="button" data-hero-q="MCP" data-hero-p="dbx">MCP</button><button type="button" data-hero-q="Delta" data-hero-p="dbx">Delta</button></div>
+          <div class="stat-strip" id="dbxStats" aria-label="At a glance"></div>
+        </div>
+        <div class="hh-marquee"><span class="hh-label">Latest updates<small>click to search</small></span><div class="hh-viewport"><div class="track" id="dbxMarquee"></div></div></div>
+      </header>
+      <div class="container hub-body">
+        <div class="tabbar" id="dataTabs" role="tablist" aria-label="Databricks digest views">
+          <button class="tab-btn active" role="tab" aria-selected="true" data-tab="dbx-updates">New features &amp; updates</button>
+          <button class="tab-btn" role="tab" aria-selected="false" data-tab="dbx-stories">Top stories</button>
+          <button class="tab-btn" role="tab" aria-selected="false" data-tab="dbx-takeaways">Key takeaways</button>
+          <button class="tab-btn" role="tab" aria-selected="false" data-tab="dbx-infographics">Infographics</button>
+          <button class="tab-btn" role="tab" aria-selected="false" data-tab="dbx-topics">Practitioner topics</button>
+        </div>
+
+        <div class="tab-panel" data-panel="dbx-stories">
+          <p class="stories-intro">Short briefs on the updates worth your attention: what changed, what to watch for, and why it matters. Each one can be copied as a ready-to-post LinkedIn update.</p>
+          <div class="story-grid" id="dbxStories"></div>
+        </div>
+
+        <div class="tab-panel active" data-panel="dbx-updates">
+          <div class="spot-wrap" id="dbxSpot" hidden></div>
+          <div class="hub-toolbar">
+            <select class="hub-select" id="dbxStatus" aria-label="Filter by status"></select>
+          </div>
+          <div class="chip-bar" id="dbxThemeChips" role="group" aria-label="Filter by theme"></div>
+          <p class="result-count" id="dbxCount" role="status" aria-live="polite"></p>
+          <ul class="upd-list" id="dbxList"></ul>
+          <div class="more-wrap" id="dbxMore" hidden><button type="button" class="btn btn-outline">Show more updates</button></div>
+        </div>
+
+        <div class="tab-panel" data-panel="dbx-takeaways">
+          <div class="insight-grid" id="dbxInsights"></div>
+        </div>
+
+        <div class="tab-panel" data-panel="dbx-infographics">
+          <div class="info-grid" id="dbxInfo"></div>
+        </div>
+
+        <div class="tab-panel" data-panel="dbx-topics">
+          <div class="topic-grid" id="dbxTopics"></div>
+        </div>
+
+        <div class="hub-note">
+          <strong>Sources &amp; attribution.</strong> Facts come from Databricks' public release notes; summaries and infographics are original to Pragya Petika.
+          Practitioner topics were inspired by community newsletters and are paraphrased, not reproduced. This is an independent digest &mdash;
+          not affiliated with, sponsored or endorsed by Databricks. Databricks, Unity Catalog, Genie and Delta Lake are trademarks of their respective owners.
+          Always check the official documentation before relying on a feature.
+          <ul class="source-list" id="dbxSources"></ul>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="pane" id="pane-bi" data-pane="bi" hidden>
+        <section class="hub hub-bi" id="bi">
+      <header class="hub-hero hero-bi">
+        <div class="hh-bg" aria-hidden="true"><i class="orb o1"></i><i class="orb o2"></i><i class="orb o3"></i><i class="grid"></i></div>
+        <div class="container hh-inner">
+          <span class="hh-kicker"><i></i>BI · Power BI &amp; Fabric Watch</span>
+          <h1 class="hh-title">Power BI &amp; Fabric,<br><span class="grad">without the noise</span></h1>
+          <p class="hh-sub">New reporting features, DAX and semantic-model changes, Copilot and agents &mdash; summarised in plain language, with links to Microsoft's own documentation.</p>
+          <div class="hh-search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="search" id="biSearch" placeholder="Search updates: DAX, Copilot, Direct Lake, theme&hellip;" aria-label="Search Power BI and Fabric updates" autocomplete="off">
+          </div>
+          <div class="hh-pop" aria-label="Popular searches"><span>Popular:</span><button type="button" data-hero-q="DAX" data-hero-p="bi">DAX</button><button type="button" data-hero-q="Copilot" data-hero-p="bi">Copilot</button><button type="button" data-hero-q="Direct Lake" data-hero-p="bi">Direct Lake</button><button type="button" data-hero-q="theme" data-hero-p="bi">theme</button><button type="button" data-hero-q="matrix" data-hero-p="bi">matrix</button><button type="button" data-hero-q="refresh" data-hero-p="bi">refresh</button></div>
+          <div class="stat-strip" id="biStats" aria-label="At a glance"></div>
+        </div>
+        <div class="hh-marquee"><span class="hh-label">Latest updates<small>click to search</small></span><div class="hh-viewport"><div class="track" id="biMarquee"></div></div></div>
+      </header>
+      <div class="container hub-body">
+        <div class="tabbar" id="biTabs" role="tablist" aria-label="Power BI digest views">
+          <button class="tab-btn active" role="tab" aria-selected="true" data-tab="bi-updates">New features &amp; updates</button>
+          <button class="tab-btn" role="tab" aria-selected="false" data-tab="bi-stories">Top stories</button>
+          <button class="tab-btn" role="tab" aria-selected="false" data-tab="bi-takeaways">Key takeaways</button>
+          <button class="tab-btn" role="tab" aria-selected="false" data-tab="bi-infographics">Infographics</button>
+          <button class="tab-btn" role="tab" aria-selected="false" data-tab="bi-topics">Practitioner topics</button>
+        </div>
+
+        <div class="tab-panel" data-panel="bi-stories">
+          <p class="stories-intro">Short briefs on the updates worth your attention: what changed, what to watch for, and why it matters. Each one can be copied as a ready-to-post LinkedIn update.</p>
+          <div class="story-grid" id="biStories"></div>
+        </div>
+
+        <div class="tab-panel active" data-panel="bi-updates">
+          <div class="spot-wrap" id="biSpot" hidden></div>
+          <div class="hub-toolbar">
+            <select class="hub-select" id="biStatus" aria-label="Filter by status"></select>
+          </div>
+          <div class="chip-bar" id="biThemeChips" role="group" aria-label="Filter by theme"></div>
+          <p class="result-count" id="biCount" role="status" aria-live="polite"></p>
+          <ul class="upd-list" id="biList"></ul>
+          <div class="more-wrap" id="biMore" hidden><button type="button" class="btn btn-outline">Show more updates</button></div>
+        </div>
+
+        <div class="tab-panel" data-panel="bi-takeaways">
+          <div class="insight-grid" id="biInsights"></div>
+        </div>
+
+        <div class="tab-panel" data-panel="bi-infographics">
+          <div class="info-grid" id="biInfo"></div>
+        </div>
+
+        <div class="tab-panel" data-panel="bi-topics">
+          <div class="topic-grid" id="biTopics"></div>
+        </div>
+
+        <div class="hub-note">
+          <strong>Sources &amp; attribution.</strong> Facts come from Microsoft's public documentation (Microsoft Learn); summaries and infographics are original to Pragya Petika.
+          Practitioner topics were inspired by community newsletters and training providers and are paraphrased, not reproduced. This is an independent digest &mdash;
+          not affiliated with, sponsored or endorsed by Microsoft. Power BI, Microsoft Fabric, Copilot, DAX and OneLake are trademarks of Microsoft.
+          Many items are in preview; check the official documentation for current availability before relying on a feature.
+          <ul class="source-list" id="biSources"></ul>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="pane" id="pane-ai" data-pane="ai" hidden>
+        <section class="hub hub-ai" id="ai">
+      <header class="hub-hero hero-ai">
+        <div class="hh-bg" aria-hidden="true"><i class="orb o1"></i><i class="orb o2"></i><i class="orb o3"></i><i class="grid"></i></div>
+        <div class="container hh-inner">
+          <span class="hh-kicker"><i></i>AI · Tools Index</span>
+          <h1 class="hh-title">Find the right <span class="grad">AI tool</span><br>in seconds</h1>
+          <p class="hh-sub">A living index of hundreds of AI tools &mdash; search by what you need, browse by category, and get quick insights on similar options. Curated and summarised, never copied.</p>
+          <div class="hh-search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="search" id="aiSearch" placeholder="Search tools or needs: video, SQL, meeting notes&hellip;" aria-label="Search AI tools" autocomplete="off">
+          </div>
+          <div class="hh-pop" aria-label="Popular searches"><span>Popular:</span><button type="button" data-hero-q="video" data-hero-p="ai">video</button><button type="button" data-hero-q="SQL" data-hero-p="ai">SQL</button><button type="button" data-hero-q="meeting notes" data-hero-p="ai">meeting notes</button><button type="button" data-hero-q="agent" data-hero-p="ai">agent</button><button type="button" data-hero-q="resume" data-hero-p="ai">resume</button><button type="button" data-hero-q="design" data-hero-p="ai">design</button></div>
+          <div class="stat-strip" id="aiStats" aria-label="At a glance"></div>
+        </div>
+        <div class="hh-marquee"><span class="hh-label">Recently featured<small>click to search</small></span><div class="hh-viewport"><div class="track" id="aiMarquee"></div></div></div>
+      </header>
+      <div class="container hub-body">
+        <div class="tabbar" id="aiTabs" role="tablist" aria-label="AI tools views">
+          <button class="tab-btn active" role="tab" aria-selected="true" data-tab="explore">Explore tools</button>
+          <button class="tab-btn" role="tab" aria-selected="false" data-tab="insights">Insights</button>
+          <button class="tab-btn" role="tab" aria-selected="false" data-tab="shortlist">Shortlist</button>
+        </div>
+
+        <div class="tab-panel active" data-panel="explore">
+          <div class="spot-wrap" id="aiFeat" hidden></div>
+          <div class="hub-toolbar">
+            <select class="hub-select" id="aiSort" aria-label="Sort tools">
+              <option value="az">Sort: A&ndash;Z</option>
+              <option value="featured">Sort: Recently featured first</option>
+            </select>
+          </div>
+          <div class="chip-bar" id="aiCats" role="group" aria-label="Filter by category"></div>
+          <div class="chip-bar" role="group" aria-label="Quick filters">
+            <button type="button" class="fchip toggle" id="aiOss" aria-pressed="false">Open source</button>
+            <button type="button" class="fchip toggle" id="aiRecent" aria-pressed="false">Recently featured</button>
+            <button type="button" class="fchip toggle" id="aiLinked" aria-pressed="false">Has a link</button>
+          </div>
+          <p class="result-count" id="aiCount" role="status" aria-live="polite"></p>
+          <div class="tool-grid" id="aiGrid"></div>
+          <div class="more-wrap" id="aiMore" hidden><button type="button" class="btn btn-outline">Show more tools</button></div>
+        </div>
+
+        <div class="tab-panel" data-panel="insights">
+          <div id="aiInsights"></div>
+        </div>
+
+        <div class="tab-panel" data-panel="shortlist">
+          <div class="pick-grid" id="aiShortlist"></div>
+        </div>
+
+        <div class="hub-note">
+          <strong>About this index.</strong> Tool names and one-line descriptions are compiled from public daily AI-tool roundups
+          (&ldquo;There's An AI For That&rdquo; and similar) and rewritten in short, neutral language. Entries are listed for reference only &mdash; no endorsement implied,
+          and listings marked &ldquo;Sponsored in newsletter&rdquo; carry no link here. Product names and logos belong to their owners.
+          Features and pricing change quickly; verify on the vendor's site and review its data terms before use.
+          If you own a listed tool and want a change or removal, please <a href="#about">get in touch</a>.
+        </div>
+      </div>
+    </section>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-links">
+      <a href="mailto:balachandra.srinevasalu@gmail.com?subject=Pragya%20Petika" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 6l-10 7L2 6"/><path d="M2 6h20v12H2z"/></svg></a>
+      <a href="https://www.linkedin.com/in/chandrra/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+      <a href="https://github.com/chandrra111" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></a>
+    </div>
+    <p>&copy; <span id="year"></span> Pragya Petika &middot; Curated by <a href="https://balachandra-srinevasalu.com/" target="_blank" rel="noopener">Balachandra Srinevasalu</a></p>
+    <p class="footer-fine">Databricks, Microsoft, Power BI, Microsoft Fabric and all other product names are trademarks of their respective owners. Pragya Petika is an independent digest, not affiliated with or endorsed by any vendor.</p>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+</button>
+
+<noscript><p style="text-align:center;padding:16px">Pragya Petika needs JavaScript to load the Data, BI and AI digests.</p></noscript>
+<script type="module" src="assets/js/main.js"></script>
+</body>
+</html>

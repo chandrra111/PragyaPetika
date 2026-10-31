@@ -1,0 +1,140 @@
+/* =====================================================================
+   Pragya Petika — brand and the "Latest" landing view.
+   Loaded last; the Data / BI / AI hubs keep their hub.css + hub-v2.css styles.
+   ===================================================================== */
+.deva { font-family: "Noto Serif Devanagari", var(--font-serif); font-weight: 600; letter-spacing: 0; text-transform: none; }
+
+/* --- brand --- */
+.brand { font-family: var(--font-display); font-weight: 800; letter-spacing: -0.01em; }
+.brand-mark { background: linear-gradient(135deg, var(--navy-900), var(--navy-700)); color: #e0b559; box-shadow: inset 0 0 0 1px rgba(224, 181, 89, 0.35); }
+.brand-mark svg { width: 20px; height: 20px; }
+.brand-text { display: flex; flex-direction: column; line-height: 1.1; }
+.brand-text small {
+  margin-top: 3px; font-family: var(--font-sans); font-size: 10px; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent);
+}
+.loading-veil .mark { font-family: var(--font-display); }
+
+/* --- hero --- */
+.hero-home .o1 { background: #c9a24b; } .hero-home .o2 { background: #1a8fa3; } .hero-home .o3 { background: #7a52d6; }
+.hero-home .hh-title { max-width: 16ch; }
+.hero-home .hh-kicker .deva { font-size: 14px; color: #f6d57d; white-space: nowrap; }
+.hero-home .hh-inner { padding-bottom: 56px; }
+
+/* --- section blocks --- */
+.home-block { margin-bottom: 64px; }
+.home-block .spot-head h2 { font-size: clamp(1.4rem, 2.4vw, 1.75rem); font-weight: 800; letter-spacing: -0.02em; }
+
+/* --- pillar tag --- */
+.pillar-tag {
+  display: inline-flex; align-items: center; padding: 4px 11px; border-radius: 999px;
+  font-size: 11.5px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;
+  background: var(--c); color: #fff;
+}
+
+/* --- search results --- */
+.home-results { margin-bottom: 56px; scroll-margin-top: calc(var(--nav-h) + 16px); }
+.home-results[hidden] { display: none; }
+.hr-sum { margin-bottom: 16px; font-size: 14px; font-weight: 600; color: var(--text-muted); }
+.hr-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; align-items: start; }
+.hr-group {
+  padding: 20px; background: var(--surface); border: 1px solid var(--border); border-top: 4px solid var(--c);
+  border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);
+}
+.hr-head { display: flex; align-items: center; gap: 10px; font-size: 13.5px; color: var(--text-muted); }
+.hr-head b { color: var(--text); font-family: var(--font-display); }
+.hr-group ul { margin-top: 14px; display: grid; gap: 14px; }
+.hr-group li a, .hr-tool { font-weight: 700; font-size: 14.5px; color: var(--text); text-align: left; }
+.hr-group li a:hover, .hr-tool:hover { color: var(--accent-2); }
+.hr-group li a svg { display: inline; }
+.hr-group li p { margin-top: 4px; font-size: 13.5px; line-height: 1.5; color: var(--text-muted); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.hr-cat { margin-left: 8px; font-size: 11.5px; font-weight: 600; color: var(--text-faint); }
+.hr-none { margin-top: 14px; font-size: 13.5px; color: var(--text-faint); }
+.hr-all { margin-top: 16px; font-size: 13px; font-weight: 700; color: var(--accent-2); }
+.hr-all:hover { text-decoration: underline; }
+
+/* --- pillars --- */
+.pillar-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.pillar-card {
+  position: relative; overflow: hidden; display: flex; flex-direction: column; gap: 12px;
+  padding: 26px 24px 22px; border-radius: var(--radius-lg); color: var(--text);
+  background: var(--surface); border: 1px solid var(--border); box-shadow: var(--shadow-sm);
+  transition: transform var(--dur-med) var(--ease), box-shadow var(--dur-med) var(--ease);
+}
+.pillar-card::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 5px; background: var(--c); }
+.pillar-card::after {
+  content: ""; position: absolute; right: -60px; top: -60px; width: 180px; height: 180px; border-radius: 50%;
+  background: color-mix(in srgb, var(--c) 12%, transparent);
+}
+.pillar-card:hover { transform: translateY(-5px); box-shadow: 0 22px 44px color-mix(in srgb, var(--c) 24%, transparent); }
+.pillar-card .pillar-tag { align-self: flex-start; }
+.pillar-card h3 { font-size: 1.3rem; font-weight: 800; letter-spacing: -0.02em; }
+.pillar-card p { font-size: 14.5px; line-height: 1.55; color: var(--text-muted); }
+.pillar-n { margin-top: auto; font-size: 14px; color: var(--text-muted); }
+.pillar-n b { font-family: var(--font-display); font-size: 1.9rem; font-weight: 800; color: var(--c); margin-right: 4px; }
+.pillar-n span { display: block; font-size: 12.5px; color: var(--text-faint); }
+.pillar-card em { font-style: normal; font-size: 13.5px; font-weight: 700; color: var(--c); }
+
+/* --- latest stories --- */
+.latest-card .story-actions button[data-more] {
+  margin-left: 0; background: transparent; color: color-mix(in srgb, var(--c) 80%, var(--text));
+  box-shadow: inset 0 0 0 1.5px var(--c);
+}
+.latest-card .story-actions button[data-more]:hover { background: var(--c); color: #fff; box-shadow: none; }
+
+/* --- AI picks --- */
+.pick-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.pick-chip {
+  display: flex; flex-direction: column; gap: 4px; padding: 18px 18px 16px; text-align: left;
+  background: var(--surface); border: 1px solid var(--border); border-left: 4px solid #8b5cf6; border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm); transition: transform var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease);
+}
+.pick-chip:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+.pick-chip b { font-family: var(--font-display); font-size: 1.02rem; color: var(--text); }
+.pick-chip span { font-size: 11.5px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #8b5cf6; }
+.pick-chip small { margin-top: 4px; font-size: 13.5px; line-height: 1.5; color: var(--text-muted); }
+
+/* --- about --- */
+.about-block {
+  padding: 40px; border-radius: var(--radius-lg); color: #dbe6f0;
+  background: linear-gradient(135deg, #0a1626 0%, #11294a 60%, #0d1f38 100%);
+  scroll-margin-top: calc(var(--nav-h) + 16px);
+}
+.about-name { max-width: 62ch; }
+.about-mark {
+  display: inline-flex; align-items: center; justify-content: center; width: 52px; height: 52px; border-radius: 14px;
+  background: rgba(224, 181, 89, 0.14); color: #e0b559; box-shadow: inset 0 0 0 1px rgba(224, 181, 89, 0.4);
+}
+.about-mark svg { width: 28px; height: 28px; }
+.about-block h2 { margin-top: 16px; color: #fff; font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 800; letter-spacing: -0.02em; }
+.deva-line { margin-top: 10px; font-size: 16px; line-height: 1.6; color: #b9c7d6; }
+.deva-line .deva { color: #f6d57d; font-size: 18px; }
+.about-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 32px; padding-top: 28px; border-top: 1px solid rgba(255, 255, 255, 0.12); }
+.about-cols h3 { font-size: 12.5px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #e0b559; }
+.about-cols p { margin-top: 10px; font-size: 14.5px; line-height: 1.65; color: #b9c7d6; }
+.about-cols b { color: #fff; }
+.about-cols a { color: #fff; }
+.about-cols a:hover { color: #f6d57d; }
+.curator-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.curator-links a {
+  padding: 7px 14px; border-radius: 999px; font-size: 13px; font-weight: 600;
+  background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.16);
+}
+.curator-links a:hover { background: #e0b559; border-color: #e0b559; color: #0f2138; }
+
+.site-footer a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+.site-footer .footer-links a { text-decoration: none; }
+
+/* --- responsive --- */
+@media (max-width: 1080px) {
+  .hr-grid, .pillar-grid { grid-template-columns: 1fr; }
+  .pick-row { grid-template-columns: repeat(2, 1fr); }
+  .about-cols { grid-template-columns: 1fr; }
+}
+@media (max-width: 760px) {
+  .pick-row { grid-template-columns: 1fr; }
+  .about-block { padding: 28px 22px; }
+  .home-block { margin-bottom: 48px; }
+  .brand-text small { font-size: 9px; letter-spacing: 0.1em; }
+  .hero-home .kick-en { display: none; }
+}

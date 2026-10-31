@@ -1,0 +1,37 @@
+/* ===== Responsive breakpoints ===== */
+
+/* Collapse to hamburger before the nav + icons get cramped */
+@media (max-width: 860px) {
+  .nav-links { display: none; }
+  .nav-toggle { display: flex; }
+  .brand-text { max-width: 42vw; }
+  .nav-links.mobile-open {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: var(--nav-h);
+    left: 0; right: 0;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 12px 20px 20px;
+    gap: 2px;
+    box-shadow: var(--shadow-md);
+    max-height: calc(100vh - var(--nav-h));
+    overflow-y: auto;
+  }
+  .nav-links.mobile-open a { padding: 13px 10px; width: 100%; }
+}
+
+@media (max-width: 760px) {
+  :root { --nav-h: 64px; }
+  .brand-text { max-width: 46vw; }
+  .tabbar { overflow-x: auto; flex-wrap: nowrap; -webkit-overflow-scrolling: touch; }
+  .tabbar::-webkit-scrollbar { display: none; }
+  .tab-btn { flex-shrink: 0; }
+  .to-top { right: 14px; bottom: 14px; }
+  section { padding-block: 56px; }
+}
+
+@media (max-width: 480px) {
+  .container { padding-inline: 18px; }
+}
